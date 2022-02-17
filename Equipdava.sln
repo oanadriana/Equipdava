@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equipdava.DB", "Equipdava.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipdava.Application", "Equipdava.Application\Equipdava.Application.csproj", "{2EF04B6A-8915-4E1D-B94F-D8DA7890181C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipdava.Application.Tests", "Equipdava.Application.Tests\Equipdava.Application.Tests.csproj", "{CDF4907A-7F20-4B1E-9A24-A14C8BD2D899}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2EF04B6A-8915-4E1D-B94F-D8DA7890181C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EF04B6A-8915-4E1D-B94F-D8DA7890181C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EF04B6A-8915-4E1D-B94F-D8DA7890181C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDF4907A-7F20-4B1E-9A24-A14C8BD2D899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDF4907A-7F20-4B1E-9A24-A14C8BD2D899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDF4907A-7F20-4B1E-9A24-A14C8BD2D899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDF4907A-7F20-4B1E-9A24-A14C8BD2D899}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

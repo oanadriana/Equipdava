@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Equipdava.Application.Tests\Equipdava.Application.Tests.csproj" />
     <ProjectReference Include="..\Equipdava.Application\Equipdava.Application.csproj" />
     <ProjectReference Include="..\Equipdava.DB\Equipdava.DB.csproj" />
     <ProjectReference Include="..\Equipdava.Domain\Equipdava.Domain.csproj" />
