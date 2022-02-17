@@ -12,7 +12,7 @@ namespace Equipdava.Application.Employees.Validators
 {
     public class CreateNewEmployeeCommandValidator : AbstractValidator<CreateNewEmployeeCommand>
     {
-        public CreateNewEmployeeCommandValidator()
+        public CreateNewEmployeeCommandValidator(EquipdavaDbContext dbContext)
         {
             RuleFor(x => x.FirstName)
                 .NotEmpty()
@@ -30,7 +30,7 @@ namespace Equipdava.Application.Employees.Validators
                 .NotEmpty()
                 .WithMessage("Employee {{Phone}} should not be empty")
                 .Matches("^[0-9]*$")
-                .WithMessage("Customer {{PhoneNumber}} is invalid!");
+                .WithMessage("Employee {{Phone}} is invalid!");
 
             RuleFor(x => x.JobTitle)
                 .NotEmpty()
