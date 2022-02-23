@@ -22,9 +22,9 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-// builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddMediatR(typeof(CreateNewEmployeeCommand).GetTypeInfo().Assembly);
+//builder.Services.AddMediatR(typeof(CreateNewEmployeeCommand).GetTypeInfo().Assembly);
 
 builder.Services.AddFluentValidation();
 builder.Services.AddTransient<IValidator<CreateNewEmployeeCommand>, CreateNewEmployeeCommandValidator>();
