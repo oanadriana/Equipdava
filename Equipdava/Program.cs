@@ -28,6 +28,7 @@ builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddFluentValidation();
 builder.Services.AddTransient<IValidator<CreateNewEmployeeCommand>, CreateNewEmployeeCommandValidator>();
+builder.Services.AddTransient<IValidator<CreateNewResourceForEmployeeCommand>, CreateNewResourceForEmployeeCommandValidator>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
