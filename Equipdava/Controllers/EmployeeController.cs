@@ -45,5 +45,44 @@ namespace Equipdava.Controllers
 
             return Ok(await _mediator.Send(createNewResourceToEmployeeCommand));
         }
+
+        [HttpDelete("{employeeId}/resources/{resourceId}")]
+        public async Task<IActionResult> DeleteResourceFromEmployee(int resourceId)
+        {
+            var deleteResourceFromEmployeeCommand = new DeleteResourceFromEmployeeCommand()
+            {
+                ResourceId = resourceId
+            };
+
+            await _mediator.Send(deleteResourceFromEmployeeCommand);
+            return NoContent();
+        }
+
+        [HttpPost("resources")]
+        public async Task<IActionResult> CreateResource([FromBody] CreateResourceCommand createResourceCommand)
+        {
+            return Ok(await _mediator.Send(createResourceCommand));
+        }
+
+        [HttpDelete("resources")]
+        public async Task<IActionResult> DeleteResource([FromBody] DeleteResourceCommand deleteResourceCommand)
+        {
+            await _mediator.Send(deleteResourceCommand);
+
+
+            return NoContent();
+        }
+
+        [HttpGet("resources")]
+        public async Task<IActionResult> GetUnallocatedResources([FromBody] GetUnallocatedResourcesQuery getUnallocatedResourcesQuery)
+        {
+            return Ok(await _mediator.Send(getUnallocatedResourcesQuery));
+        }
+
+        [HttpGet("resources/allocated")]
+        public async Task<IActionResult> GetAllocatedResources()
+        {
+            return Ok(await _mediator.Send(new GetAllocatedResourcesQuery()));
+        }
     }
 }

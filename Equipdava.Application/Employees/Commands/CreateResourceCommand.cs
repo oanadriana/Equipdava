@@ -9,9 +9,11 @@ using MediatR;
 
 namespace Equipdava.Application.Employees.Commands
 {
-    public class CreateNewResourceForEmployeeCommand : IRequest<AllocatedResource>, IRequest<Unit>
+    public class CreateResourceCommand : IRequest<IEnumerable<Resource>>, IRequest<Unit>
     {
-        public int EmployeeId { get; set; }
-        public int ResourceId { get; set; }
+        public string Brand { get; set; }
+        public string Model { get; set; }
+        public int ResourceTypeId { get; set; }
+        public int Quantity { get; set; }
     }
 }

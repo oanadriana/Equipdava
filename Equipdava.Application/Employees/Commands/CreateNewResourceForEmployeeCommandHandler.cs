@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Equipdava.Application.Employees.Models;
 using Equipdava.DB.DbContexts;
 using Equipdava.Domain.Models;
 using FluentValidation;
@@ -14,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Equipdava.Application.Employees.Commands
 {
-    public class CreateNewResourceForEmployeeCommandHandler : IRequestHandler<CreateNewResourceForEmployeeCommand, EmployeeResource>
+    public class CreateNewResourceForEmployeeCommandHandler : IRequestHandler<CreateNewResourceForEmployeeCommand, AllocatedResource>
     {
         private readonly EquipdavaDbContext _dbContext;
         private readonly IMapper _mapper;
@@ -27,7 +28,7 @@ namespace Equipdava.Application.Employees.Commands
             _validator = validator;
         }
 
-        public async Task<EmployeeResource> Handle(CreateNewResourceForEmployeeCommand request,
+        public async Task<AllocatedResource> Handle(CreateNewResourceForEmployeeCommand request,
             CancellationToken cancellationToken)
         {
             await _validator.ValidateAndThrowAsync(request, cancellationToken);
@@ -47,7 +48,15 @@ namespace Equipdava.Application.Employees.Commands
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return _mapper.Map<EmployeeResource>(employeeResource);
+            var returnedResource = await _dbContext.EmployeesResources
+                .Include(x => x.Employee)
+                .Include(y => y.Resource)
+                .ThenInclude(z => z.ResourceType)
+                .Where(x => x.ResourceId == request.ResourceId)
+                .SingleOrDefaultAsync(cancellationToken);
+
+
+            return _mapper.Map<AllocatedResource>(returnedResource);
         }
 
         //private Task<Equipdava.DB.Entities.Resource> GetResourceFromDbTask(int resourceId)

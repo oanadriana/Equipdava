@@ -29,7 +29,7 @@ namespace Equipdava.Application.Employees.Validators
                 .WithMessage("Employee does not exist!");
 
             //RuleFor(x => Tuple.Create(x.EmployeeId, x.ResourceId))
-            //    .ShouldNotAllowDuplicateResource(dbContext);
+            //    .ShouldNotAllowDuplicateResource(dbContext, 1);
 
         }
     }
